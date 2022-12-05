@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+	    <h:body>
+        <h:form>
+                <h2 style="text-align: center" class="col-sm-4">Update Your Policies</h2>
+            <hr/>
+Policy Id :
+                    <h:inputText id="policyId" value="#{policy.policyId}" /> <br/>
+Policy Name :
+                    <h:inputText id="policyName" value="#{policy.policyName}" /> <br/>
+Policy Type :
+                    <h:inputText id="policyType" value="#{policy.policyType}" /> <br/>
+Premium Amount :
+                    <h:inputText id="premiumAmount" value="#{policy.premiumAmount}" /> <br/>
+Pay Mode :
+                    <h:inputText id="payMode" value="#{policy.payMode}" /> <br/>                    
+Term :
+                    <h:inputText id="term" value="#{policy.term}"/> <br/>
+                    <h:commandButton value="Update" 
+                    	action="#{policyDAO.updatePolicy(policy)}" />
+        </h:form>
+    </h:body>
+	
+</html>

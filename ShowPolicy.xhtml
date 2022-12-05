@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"  
+		xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+	<center>
+		<h2><h:outputText value="Policy Record"/></h2>
+	</center>
+	<h:form>
+	<h:dataTable value="#{policyDAO.showPolicy()}" var="p" border="3">
+		<h:column>
+			<f:facet name="header">Policy Id</f:facet>
+			<h:outputText value="#{p.policyId}"/>
+		</h:column>	
+		<h:column>
+			<f:facet name="header">Policy Name</f:facet>
+			<h:outputText value="#{p.policyName}"/>
+		</h:column>	
+		<h:column>
+			<f:facet name="header">Policy Type</f:facet>
+			<h:outputText value="#{p.policyType}"/>
+		</h:column>	
+		<h:column>
+			<f:facet name="header">Premium Amount</f:facet>
+			<h:outputText value="#{p.premiumAmount}"/>
+		</h:column>	
+		<h:column>
+			<f:facet name="header">Pay Mode</f:facet>
+			<h:outputText value="#{p.payMode}"/>
+		</h:column>	
+		<h:column>
+			<f:facet name="header">Term</f:facet>
+			<h:outputText value="#{p.term}"/>
+		</h:column>	
+		<h:column>
+			<f:facet name="header">Installment Pay Per Mode</f:facet>
+			<h:outputText value="#{p.installmentAmountPerPayMode}"/>
+		</h:column>	
+		<h:column>
+			<f:facet name="header">Matured Amount</f:facet>
+			<h:outputText value="#{p.maturedAmount}"/>
+		</h:column>
+		<h:column> 
+            <f:facet name="header">Update</f:facet>
+ 			
+            <h:outputLink value="UpdatePolicy.xhtml" outcome="Update">
+                    <f:param name="patientid" value="#{p.policyId}"></f:param>
+                    Update
+                </h:outputLink>
+                
+        </h:column>
+        <h:column> 
+            <f:facet name="header">Delete</f:facet>
+            <h:commandButton action = "#{policyDAO.deletePolicy(p.policyId)}" 
+                    		value="Delete" > 
+            </h:commandButton>
+        </h:column>
+
+</h:dataTable>
+	</h:form>
+</h:body>
+</html>
